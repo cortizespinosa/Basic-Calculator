@@ -1,0 +1,123 @@
+// Preprocessor Directives
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+* Name:				    main()
+* Parameters:		  None.
+* Processes:		  The calculator was created using switch statements.
+* Return Value:		An integer representing an error code; if the program ends without error, zero
+*					        will be returned to the calling program or operating system.
+*/
+int main() {
+	// Constants & Variables
+	char operator;
+	double a, b, c;
+
+	// User input
+		printf("Enter first number: ");
+		scanf_s("%lf", &a);
+
+		printf("\nEnter second number: ");
+		scanf_s("%lf", &b);
+		printf("\n");
+
+		// Menu
+		printf("\nCalculator Menu\n\n");
+		printf("(A)dd.\n");
+		printf("(S)ubtract.\n");
+		printf("(M)ultiply.\n");
+		printf("(D)ivide.\n");
+		printf("A(V)erage.\n");
+		printf("Find (L)argest number.\n");
+		printf("Determine s(I)gn.\n");
+		printf("E(X)it.\n\n");
+		printf("Choice: ");
+		scanf_s(" %c", &operator);
+
+		switch (operator)
+		{
+			// Addition
+		case 'A':
+			c = a + b;
+			printf("\nThe sum is %.2lf\n", c);
+			break;
+
+			// Subtraction
+		case 'S':
+			c = a - b;
+			printf("\nThe difference is %.2lf\n", c);
+			break;
+
+			// Division
+		case 'D':
+			c = a / b;
+			printf("\nThe quotient is %.2lf\n", c);
+			if (b == 0){
+				printf("\nError: you cannot divide by 0...\n");
+			}
+			break;
+
+			// Multiplication
+		case 'M':
+			c = a * b;
+			printf("\nThe product is %.2lf\n", c);
+			break;
+
+			// Average
+		case 'V':
+			c = (a + b) / 2;
+			printf("\nThe average of the two numbers is %.2lf\n", c);
+			break;
+
+			// Determing the Largest Number
+		case 'L':
+			if (a != b && a > b) {
+				printf("\n%.2lf is larger.\n", a);
+			}
+			else if (a != b && b > a) {
+				printf("\n%.2lf is larger.\n", b);
+			}
+			else {
+				printf("\nThey are the same number.\n");
+			}
+			break;
+
+			// Determining the Sign
+		case 'I':
+			if (a == 0){
+				printf("The first number is 0");
+			}
+			if (b == 0) {
+				printf("The second number is 0");
+			}
+			if (a < 0) {
+				printf("\nThe first number is negative.\n");
+			}
+			if (b < 0) {
+				printf("\nThe second number is negative.\n");
+			}
+			if (a > 0) {
+				printf("\nThe first number is positive.\n");
+			}
+			if (b > 0) {
+				printf("\nThe second number is positive.\n");
+			}
+			else {
+				printf("\nThe number(s) is/are 0.\n");
+			}
+			break;
+
+			// Exit
+		case 'X':
+			printf("");
+			break;
+		
+		default:
+			printf("Incorrect. Try again.\n");
+			break;
+		}
+		printf("\nThank you for using Cristian's calculator!\n");
+
+	return 0;
+}
